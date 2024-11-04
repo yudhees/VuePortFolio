@@ -1,6 +1,6 @@
-import { getDb } from "#config/mongodb.js";
+// import { getDb } from "#config/mongodb.js";
 
-const db=await getDb()
+// const db=await getDb()
 export default async (req, context) => {
   // const data=await db.collection('contents').find().toArray()
   const data={name:'yudhees'}
