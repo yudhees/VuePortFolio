@@ -15,5 +15,8 @@
     "vue": "^3.5.12",
     "vueportfolio": "file:",
     "winston": "^3.16.0"
+  },
+  "imports": {
+    "#config/*": "./config/*"
   }
 }
