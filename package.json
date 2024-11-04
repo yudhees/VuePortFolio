@@ -9,11 +9,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "mongodb": "^6.10.0",
     "vue": "^3.5.12",
-    "vueportfolio": "file:"
+    "vueportfolio": "file:",
+    "winston": "^3.16.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.1.4",
     "vite": "^5.4.10"
+  },
+  "imports": {
+    "#config/*": "./config/*"
   }
 }
