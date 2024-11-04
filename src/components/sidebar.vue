@@ -1,47 +1,19 @@
 <template>
        <div class="sidebar close my-3">
             <ul class="nav-links icetab-container" id="icetab-container">
-                <li class="icetab current-tab">
+                <li class="icetab" v-for="val,index in sideBarJson" :key="'sidebar'+index" 
+                :class="{'current-tab':isActive(val.name)}" @click="updateCurrentTab(val.name)">
                     <a class="nav_menu_icon_line" href="javascript:void(0)">
-                        <img class="nav_menu_icon" src="/assets/images/home_icon.svg" alt="home_icon">
+                        <img class="nav_menu_icon" :src="val.image" :alt="'icon_'+val.name">
                     </a>
                     <ul class="sub-menu blank">
-                        <li class=""><a class="link_name" href="javascript:void(0)">Home</a></li>
-                    </ul>
-                </li>
-                <li class="icetab menu-btn">
-                    <a class="nav_menu_icon_line" href="javascript:void(0)">
-                        <img class="nav_menu_icon" src="/assets/images/about_icon.svg" alt="about_icon">
-                    </a>
-                    <ul class="sub-menu">
-                        <li><a class="link_name" href="javascript:void(0)">About Me</a></li>
-                    </ul>
-                </li>
-                <li class="icetab">
-                    <a class="nav_menu_icon_line" href="javascript:void(0)">
-                        <img class="nav_menu_icon" src="/assets/images/resume_icon.svg" alt="resume_icon">
-                    </a>
-                    <ul class="sub-menu">
-                        <li><a class="link_name" href="javascript:void(0)">Resume</a></li>
-                    </ul>
-                </li>
-              
-                <li class="icetab">
-                    <a class="nav_menu_icon_line" href="javascript:void(0)">
-                        <img class="nav_menu_icon" src="/assets/images/skills_icon.svg" alt="skills_icon">
-                    </a>
-                    <ul class="sub-menu blank">
-                        <li><a class="link_name" href="javascript:void(0)">Skills</a></li>
-                    </ul>
-                </li>
-                <li class="icetab" id="contact">
-                    <a class="" href="javascript:void(0)">
-                        <img class="nav_menu_icon" src="/assets/images/contact_icon.svg" alt="contact_icon">
-                    </a>
-                    <ul class="sub-menu blank">
-                        <li><a class="link_name" href="javascript:void(0)">Contact</a></li>
+                        <li ><a class="link_name" href="javascript:void(0)">{{ val.heading }}</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
 </template>
+<script setup>
+import { inject } from 'vue';
+const {isActive,updateCurrentTab,sideBarJson}=inject('indexStore')
+</script>

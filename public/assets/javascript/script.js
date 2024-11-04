@@ -10,23 +10,23 @@ document.getElementsByClassName("olivia_moswa")[0];
 // olivia moswa text end
 
 // designer text
-firstText = "Full Stack Developer";
-secondText = "Freelancer";
-intervalTime = 600;
+let firstText = "Full Stack Developer",
+secondText = "Freelancer",
+intervalTime = 600,
+thridText='Database Architect'
 // window.load = displayText();
 function displayText() {
     document.querySelector('.designer').innerText = firstText;
-    firstText.innerText
     setTimeout(() => {
         document.querySelector('.designer').innerText = secondText;
     }, intervalTime * 3);
-    // setTimeout(() => {
-    //     document.querySelector('.designer').innerText = thridText;
-    // }, intervalTime * 5);
+    setTimeout(() => {
+        document.querySelector('.designer').innerText = thridText;
+    }, intervalTime * 5);
 }
-// setInterval(() => {
-//     displayText();
-// }, intervalTime * 7);
+setInterval(() => {
+    displayText();
+}, intervalTime * 7);
 // designer text end
 
 // card Tabs 
@@ -234,25 +234,6 @@ function openNav() {
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
-
-// cursor
-let cursor = document.querySelector('.cursor');
-// let cursorScale = document.querySelectorAll('a,button,.pop-up,.trigger,.share,#close,.toggle,#vimeo,#youtube,.link,.gallery');
-
-// cursorScale.forEach(link => {
-//     link.addEventListener('mousemove', () => {
-//         cursor.classList.add('grow');
-//         if (link.classList.contains('small')) {
-//             cursor.classList.remove('grow');
-//             cursor.classList.add('grow-small');
-//         }
-//     });
-
-//     link.addEventListener('mouseleave', () => {
-//         cursor.classList.remove('grow');
-//         cursor.classList.remove('grow-small');
-//     });
-// });
 
 // Whole Page Scrolling Animation
 const observer = new IntersectionObserver((entries) => {

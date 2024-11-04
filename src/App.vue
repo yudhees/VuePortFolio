@@ -13,11 +13,13 @@
         </div>
     </div>
     <Header/>
+    <Main/>
 </template>
 <script setup>
 import preloader from './components/preloader.vue'
 import bubbles from './components/bubbles.vue'
 import Header from './components/header.vue'
 import init from './composables/index.js'
+import Main from './components/main.vue'
 const {cursor}=init()
 </script>
