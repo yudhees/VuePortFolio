@@ -7,7 +7,7 @@
                 <div class="bio_contain">
                     <h1 class="olivia_moswa">Yudhees</h1>
                     <h2 class="designer font_w_font_s1 overflow-hidden"></h2>
-                    <button class="download_cv hire_me font_w_font_s" id="hiremebtn">
+                    <button class="download_cv hire_me font_w_font_s" @click="updateCurrentTab('contact')">
                         <i class="ri-at-line"></i> Hire Me
                     </button>
                 </div>
@@ -15,6 +15,9 @@
             <div class="right_card_main icetab-content" id="icetab-content">
                 <Home />
                 <About />
+                <Resume/>
+                <Skills />
+                <Contact />
                 <!-- ======================================= Services Section ================================== -->
             
              
@@ -30,6 +33,9 @@
 <script setup>
 import Home from './home.vue'
 import About from './about.vue'
+import Resume from './resume.vue'
+import Skills from './skills.vue';
+import Contact from './contact.vue'
 import { inject } from 'vue';
-const {isActive}=inject('indexStore')
+const {updateCurrentTab}=inject('indexStore')
 </script>

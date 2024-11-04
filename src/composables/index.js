@@ -6,6 +6,8 @@ export default function init(){
     let mouseX = 0,mouseY = 0;
     const contents=ref({})
     const currentTab=ref('home')
+    const skills=ref([])
+    const experience=ref([])
     async function initCursor(){
         gsap.to({}, 0.016, {
             repeat: -1,
@@ -40,12 +42,17 @@ export default function init(){
         currentTab.value=name
     }
     const isActive=computed(()=>(name)=>name==currentTab.value)
-    function getDbData(){
-         axios.get('/contents')
-         .then(res=>{
-            const {data}=res.data
-            contents.value=data
-         })
+    async function getDbData(){
+        try {
+           const res= await axios.get('/contents')
+           const {data}=res.data
+           contents.value=data.contents
+           experience.value=data.experience
+           skills.value=data.skills
+           initScript()
+        } catch (error) {
+           console.error(error);   
+        }
     }
     const sideBarJson=[
         {
@@ -78,10 +85,7 @@ export default function init(){
         mouseX = e.clientX;
         mouseY = e.clientY;
     })
-    onMounted(()=>{
-        initCursor()
-        initCursorScale()
-        getDbData()
+    const initScript=()=>{
         const script = document.createElement('script');
         script.src = '/assets/javascript/script.js'; 
         script.type = 'text/javascript';
@@ -90,7 +94,12 @@ export default function init(){
           document.dispatchEvent( new Event('DOMContentLoaded'))
         };
         document.body.appendChild(script);
-     })
-    provide('indexStore',{contents,isActive,updateCurrentTab,sideBarJson})
+    }
+    onMounted(()=>{
+        initCursor()
+        initCursorScale()
+        getDbData()
+    })
+    provide('indexStore',{contents,isActive,updateCurrentTab,sideBarJson,skills,experience})
     return {cursor}
 }

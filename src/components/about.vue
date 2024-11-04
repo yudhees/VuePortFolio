@@ -10,7 +10,7 @@
         </h3>
         <div class="about_counter fade_up">
             <div class="counter">
-                <h3 class="counter2 count font_w_font_s" data-count="<?=$interval?>">
+                <h3 class="counter2 count font_w_font_s" :data-count="interval">
                     {{ interval }}+
                 </h3>
                 <h3 class="experince font_w_font_s1 ">YEARS OF EXPERIENCE</h3>

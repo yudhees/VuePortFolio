@@ -8,11 +8,7 @@
             {{ contents?.objective?.value }}
         </h3>
         <div class="button_circle_group">
-            <div>
-                <button class="download_cv font_w_font_s" @click="downloadCv">
-                    <i class="ri-download-cloud-2-line"></i>Download CV
-                </button>
-            </div>
+           <Dowloadcvbtn/>
             <div class="circular_text_main ">
                 <!-- <a href="javascript:void(0)" class="down_arrow_main position-relative">
                                <img class="circular_text" src="/assets/images/circular_text.png" alt="circular_text">
@@ -24,8 +20,6 @@
 </template>
 <script setup>
 import { inject } from 'vue';
-const downloadCv=()=>{
-    window.open('/assets/pdf/Yudhees_resume.pdf')   
-}
+import Dowloadcvbtn from './dowloadcvbtn.vue';
 const {contents,isActive}=inject('indexStore')
 </script>
