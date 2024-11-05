@@ -10,7 +10,7 @@ export default async (req, context) => {
         const {name,email,message}=data
         await db.collection('contact').insertOne(data)
         const text=`Name:${name},Email:${email}, message:${message}`;
-        await sendMail({to:process.env.MAIL_USERNAME,subject:'New Recruit Message',text})
+        sendMail({to:process.env.MAIL_USERNAME,subject:'New Recruit Message',text})
         return toJson({success:true,messaeg:"Data Updated Successfully"})
     }
 };
