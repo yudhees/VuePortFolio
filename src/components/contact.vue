@@ -4,7 +4,7 @@
             <h2 class="intro fade_up">contact us</h2>
         </div>
         <h2 class="moswa fade_up">Let's Work Together!</h2>
-        <form id="contactform" action="submitcontact.php" method="post">
+        <form id="contactform" netlify>
             <div class="container1">
                 <div class="form form__1">
                     <label for="name" class="form__label">What’s Your Name*</label>
@@ -27,7 +27,7 @@
                     <input type="text" class="form__input message2"  id="message" required name="message">
                 </div>
                 <div class="send_message_form">
-                    <button class="download_cv form__btn">
+                    <button class="download_cv form__btn" type="submit">
                         <i class="fa-regular fa-paper-plane material-icons"></i>Send Message
                     </button>
                 </div>
