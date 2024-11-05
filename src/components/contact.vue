@@ -27,7 +27,7 @@
                     <input type="text" class="form__input message2"  id="message" required name="message" v-model="form.message">
                 </div>
                 <div class="send_message_form">
-                    <button class="download_cv form__btn" type="submit">
+                    <button class="download_cv form__btn" type="submit" :disabled="loading">
                         <i class="fa-regular fa-paper-plane material-icons"></i>Send Message
                     </button>
                 </div>
@@ -58,13 +58,16 @@
 </template>
 <script setup>
 import axios from 'axios';
-import { inject, reactive } from 'vue';
+import { inject, reactive, ref } from 'vue';
 const { isActive } = inject('indexStore')
 const form=reactive({
     email:'',name:"",mobile:'',message:'',
 })
+const loading=ref(false)
 const submitForm=async()=>{
    if(validateForm()){
+      if(!loading.value){
+       loading.value=true
       try {
           const res=await axios.post('/submit-contact',form)    
           if(res.data?.success){
@@ -78,6 +81,8 @@ const submitForm=async()=>{
           alert('SomeThing Went Wrong Please Mail to yudees479@gmail.com')
       } catch (error) {
           alert('SomeThing Went Wrong Please Mail to yudees479@gmail.com')
+      }
+      loading.value=false
       }
    }
    else
