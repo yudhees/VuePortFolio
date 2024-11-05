@@ -50,9 +50,27 @@ export default function init(){
            experience.value=data.experience
            skills.value=data.skills
            initScript()
+           updateMeta()
         } catch (error) {
            console.error(error);   
         }
+    }
+    async function updateMeta(){
+        const content=contents.value.objective.value
+        const metas=[
+            {name:"description",content},
+            {name:"og:description",content},
+            {name:"twitter:description",content}
+        ]
+        metas.forEach(val=>{
+            appendMeata(val)
+        })
+    }
+    async function appendMeata({name,content}){
+        const metaDescription = document.createElement('meta');
+         metaDescription.name = name;
+         metaDescription.content = content;
+         document.head.appendChild(metaDescription);
     }
     const sideBarJson=[
         {

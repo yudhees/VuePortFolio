@@ -4,27 +4,27 @@
             <h2 class="intro fade_up">contact us</h2>
         </div>
         <h2 class="moswa fade_up">Let's Work Together!</h2>
-        <form id="contactform" netlify>
+        <form id="contactform" netlify @submit.prevent="submitForm"  data-netlify="true">
             <div class="container1">
                 <div class="form form__1">
                     <label for="name" class="form__label">What’s Your Name*</label>
                     <input type="text" class="form__input"  id="name" name="name" required
-                        autocomplete="off">
+                        autocomplete="off" v-model="form.name">
                 </div>
                 <div class="form form__2">
                     <label for="email" class="form__label">Your Email*</label>
                     <input type="email" class="form__input"  id="email" required autocomplete="off"
-                        name="email">
+                        name="email" v-model="form.email">
                 </div>
                 <div class="form form__1">
                     <label for="name" class="form__label">Your Phone Number</label>
-                    <input type="text" class="form__input"  id="phone" autocomplete="off" name="mobile">
+                    <input type="text" class="form__input"  id="phone" autocomplete="off" name="mobile" v-model="form.mobile">
                 </div>
             </div>
             <div class="btn_message">
                 <div class="form form__3">
                     <label for="name" class="form__label">Message*</label>
-                    <input type="text" class="form__input message2"  id="message" required name="message">
+                    <input type="text" class="form__input message2"  id="message" required name="message" v-model="form.message">
                 </div>
                 <div class="send_message_form">
                     <button class="download_cv form__btn" type="submit">
@@ -57,6 +57,38 @@
     </section>
 </template>
 <script setup>
-import { inject } from 'vue';
+import axios from 'axios';
+import { inject, reactive } from 'vue';
 const { isActive } = inject('indexStore')
+const form=reactive({
+    email:'',name:"",mobile:'',message:'',
+})
+const submitForm=async()=>{
+   if(validateForm()){
+      try {
+          const res=await axios.post('/submit-contact',form)    
+          if(res.data?.success){
+            form.email=''
+            form.name=''
+            form.mobile=''
+            form.message=''
+            alert('Data Saved I will get back to you')
+          }
+          else
+          alert('SomeThing Went Wrong Please Mail to yudees479@gmail.com')
+      } catch (error) {
+          alert('SomeThing Went Wrong Please Mail to yudees479@gmail.com')
+      }
+   }
+   else
+    alert("Invalid Form submission")
+}
+const validateForm=()=>{
+    let valid=true
+    Object.entries(form).forEach(([key,val])=>{
+         if(!val.length)
+         valid=false
+    })
+    return valid
+}
 </script>
