@@ -5,6 +5,6 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   plugins: [vue()],
   build: {
-    outDir: 'front', // Ensure this matches the directory name you set in Vercel
+    outDir: 'front', 
   },
 })
