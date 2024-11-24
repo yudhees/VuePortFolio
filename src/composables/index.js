@@ -1,7 +1,8 @@
 import axios from "axios";
-import { ref,onMounted,provide, computed} from "vue";
+import { ref,onMounted,provide, computed, inject} from "vue";
 
 export default function init(){
+    const CDN=inject('CDN_URL')
     const cursor=ref(null)
     let mouseX = 0,mouseY = 0;
     const contents=ref({})
@@ -74,27 +75,27 @@ export default function init(){
     }
     const sideBarJson=[
         {
-            image:'/assets/images/home_icon.svg',
+            image:CDN+'/images/home_icon.svg',
             heading:"Home",
             name:"home",
         },
         {
-            image:'/assets/images/about_icon.svg',
+            image:CDN+'/images/about_icon.svg',
             heading:"About Me",
             name:'about',
         },
         {
-            image:'/assets/images/resume_icon.svg',
+            image:CDN+'/images/resume_icon.svg',
             heading:"Resume",
             name:'resume',
         },
         {
-            image:'/assets/images/skills_icon.svg',
+            image:CDN+'/images/skills_icon.svg',
             heading:"Skills",
             name:'skills'
         },
         {
-            image:'/assets/images/contact_icon.svg',
+            image:CDN+'/images/contact_icon.svg',
             heading:"Contact",
             name:'contact'
         },
@@ -105,7 +106,7 @@ export default function init(){
     })
     const initScript=()=>{
         const script = document.createElement('script');
-        script.src = '/assets/javascript/script.js'; 
+        script.src = CDN+'/javascript/script.js'; 
         script.type = 'text/javascript';
         script.onload = () => {
           console.log('Script loaded successfully');

@@ -2,7 +2,7 @@
 <section class="card_section" id="card_main">
             <div class="olivia_bio" id="oliva_details">
                 <div class="imgBox">
-                  <img src="/assets/images/yudhees.jpg" class="w-100 h-100">
+                  <img :src="CDN+'/images/yudhees.jpg'" class="w-100 h-100">
                 </div>
                 <div class="bio_contain">
                     <h1 class="olivia_moswa">Yudhees</h1>
@@ -38,4 +38,5 @@ import Skills from './skills.vue';
 import Contact from './contact.vue'
 import { inject } from 'vue';
 const {updateCurrentTab}=inject('indexStore')
+const CDN=inject('CDN_URL')
 </script>

@@ -1,6 +1,6 @@
 <template>
     <div class="toggle" onclick="openNav()">
-            <img class="line-menu" src="/assets/images/line-menu.png" alt="line-menu">
+            <img class="line-menu" :src="CDN+'/images/line-menu.png'" alt="line-menu">
         </div>
         <div id="mySidenav" class="sidenav">
             <div class="closebtn" onclick="closeNav()">&times;</div>
@@ -19,4 +19,5 @@
 <script setup>
 import { inject } from 'vue';
 const {isActive,updateCurrentTab,sideBarJson}=inject('indexStore')
+const CDN=inject('CDN_URL')
 </script>

@@ -36,15 +36,15 @@
         <div>
             <h3 class="moswa touch">Get in touch!</h3>
             <div class="contact_number_main">
-                <img src="/assets/images/contact.svg" alt="contact">
+                <img :src="CDN+'/images/contact.svg'" alt="contact">
                 <h4 class="contact_number"><a href="tel:+918220611249">+91 8220611249</a></h4>
             </div>
             <div class="contact_number_main">
-                <img src="/assets/images/gmail.svg" alt="gmail">
+                <img :src="CDN+'/images/gmail.svg'" alt="gmail">
                 <h4 class="contact_number"><a href="mailto:hello@yudees479@gmail.com">yudees479@gmail.com</a></h4>
             </div>
             <div class="contact_number_main">
-                <img src="/assets/images/map.svg" alt="map">
+                <img :src="CDN+'/images/map.svg'" alt="map">
                 <h4 class="contact_number">
                     <a href="javascript:void;">No:12,Majeeth Road,Sivagangai</a>
                 </h4>
@@ -60,6 +60,7 @@
 import axios from 'axios';
 import { inject, reactive, ref } from 'vue';
 const { isActive } = inject('indexStore')
+const CDN=inject('CDN_URL')
 const form=reactive({
     email:'',name:"",mobile:'',message:'',
 })
