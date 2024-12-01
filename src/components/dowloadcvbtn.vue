@@ -7,6 +7,6 @@
 </template>
 <script setup>
 const downloadCv=()=>{
-    window.open('/assets/pdf/Yudhees_resume.pdf')   
+    window.open('https://cdn.jsdelivr.net/gh/yudhees/cdn@master/yudhees_resume.pdf')   
 }
 </script>
