@@ -89,11 +89,11 @@ export default function init(){
             heading:"Resume",
             name:'resume',
         },
-        {
-            image:CDN+'/images/skills_icon.svg',
-            heading:"Skills",
-            name:'skills'
-        },
+        // {
+        //     image:CDN+'/images/skills_icon.svg',
+        //     heading:"Skills",
+        //     name:'skills'
+        // },
         {
             image:CDN+'/images/contact_icon.svg',
             heading:"Contact",

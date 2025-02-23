@@ -28,5 +28,5 @@
 <script setup>
 import { inject } from 'vue';
 const {contents,isActive}=inject('indexStore')
-const interval=parseInt(new Date().getFullYear())-2022;
+const interval=parseInt(new Date().getFullYear())-2023;
 </script>

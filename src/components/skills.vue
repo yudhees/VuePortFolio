@@ -20,9 +20,9 @@
             <div class="skill_circle fade_up" v-for="skill in skills" :key="'skill'+skill._id">
                 <div class="hard_skill_group">
                     <img :src="skill['image']" :alt="skill['name']" style="max-height:49px;min-height:36px">
-                    <h4 class="hard_skill_counter font_w_font_s1">
+                    <!-- <h4 class="hard_skill_counter font_w_font_s1">
                      {{skill.percentage}} %
-                    </h4>
+                    </h4> -->
                 </div>
                 <h4 class="subject font_w_font_s1">
                     {{ skill.name }}

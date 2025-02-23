@@ -37,7 +37,7 @@
                             {{ `${val.name} / ${val.startYear} - ${val.endYear??'Current'}` }}
                         </h4>
                     </div>
-                    <img class="company_logo" :src="val['image']" :alt="val['name']" style="max-height:53px">
+                    <img class="company_logo" :src="val['image']" :alt="val['name']" style="max-height:53px;filter: none;">
                 </div>
                 <h5 class="cursus font_w_font_s1">
                     {{ val['description'] }}
